@@ -1,0 +1,127 @@
+<html>
+
+<body>
+
+  <script>
+
+
+    let playerSelection;
+    let computerSelection;
+    let options = ["rock", "paper", "scissors"]
+
+    function computerPlay() {
+        return (options[Math.floor(Math.random()*options.length)]);
+    }
+
+    function playRound(playerSelection, computerSelection) {
+
+        if (playerSelection === computerSelection) {
+            return "Draw";
+
+        }
+            
+        else if(computerSelection==="rock"){
+
+                if (playerSelection===("scissors")) {
+                    console.log("You lose! Rock beats scissors");
+                    return false;
+                }
+                else if (playerSelection==="paper") {
+                    console.log("You won! Paper beats rock");
+                    return true;
+                }
+            }
+
+        else if (computerSelection==="paper") {
+
+                if (playerSelection==="rock") {
+                    console.log("You lose! Paper beats rock");
+                    return false;
+                }
+                else if (playerSelection==="scissors") {
+                    console.log("You won! Scissors beats paper");
+                    return true;
+                }
+
+            }   
+        else if (computerSelection==="scissors") {
+
+                if (playerSelection==="paper") {
+                    console.log("You lose! Scissors beats paper");
+                    return false;
+                }
+                else if (playerSelection==="rock") {
+                    console.log("You won! Rock beats scissors");
+                    return true;
+                }
+
+            } 
+                
+        }
+
+        function game() {
+
+            let playerScore = 0;
+            let computerScore = 0;
+
+            function playerPrompt() {
+                playerSelection = prompt("1, 2, 3, Rock Paper Scissors!");
+                if (playerSelection === null) {
+                    return false;
+                }
+                else if (options.includes(playerSelection)) {
+                    playerSelection = playerSelection.toLowerCase();
+                    return playerSelection;
+                }
+                else if (playerSelection !==null && !options.includes(playerSelection)) {
+                    console.log("Please enter a valid selection");
+                    playerPrompt();
+                }
+            }
+
+            function scoreKeep(result) {
+                if ( result === true) {
+                    playerScore += 1;
+                }
+                else if (result ===false){
+                    computerScore += 1;
+                }
+                else {}
+                console.log("Your score: " + playerScore);
+                console.log("Computer score: " + computerScore);
+            }
+
+            function finalScore(playerScore, computerScore) {
+                if (playerScore > computerScore) {
+                    alert("You won! Congrats");
+                }
+            
+                else {
+                    alert("You lost, try again");
+                }
+            }
+
+            for (let i=1; i<=5; i++) {
+                playerPrompt();
+                if (playerSelection) {
+                    console.log("Round " + i);
+                    computerSelection = computerPlay();
+                    console.log("You threw: " + playerSelection);
+                    console.log("Computer threw: " + computerSelection);
+                    let result = playRound(playerSelection, computerSelection);
+                    scoreKeep(result);
+                }
+
+                else { return; }
+            }
+
+            finalScore(playerScore, computerScore);
+            
+        }
+
+
+  </script>  
+
+</body>
+
+</html>
