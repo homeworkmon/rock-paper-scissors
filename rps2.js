@@ -82,14 +82,17 @@ function endGame(playerLives, computerLives) {
         congrats.classList.add('congrats');
         if (playerLives > computerLives) {
             congrats.textContent = 'u have sweet taste!!';
-            gameResults.appendChild(congrats);
             endMessage.innerText = 'u totally won';
         }
         else if (computerLives > playerLives) {
             congrats.textContent = 'TTYL';
-            gameResults.appendChild(congrats);
             endMessage.innerText = 'u totally lost';
         }
+        else if (computerLives === playerLives) {
+            congrats.textContent = 'Peace out';
+            endMessage.innerText = 'Take a chill pill, its a draw';
+        }
+        gameResults.appendChild(congrats);
         gameEnd.style.display = 'block';
     }  
 }
