@@ -1,4 +1,4 @@
-Assignment #2 of the Odin Project Foundations! :)
+Assignment #2 of the Odin Project Foundations! :) [Live preview](https://homeworkmon.github.io/rock-paper-scissors/)
 This project was heavily inspired by and borrowed from [mooniiDev's work](https://github.com/mooniiDev/rock-paper-scissors-game)!! ty <3
 
 Learned:
